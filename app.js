@@ -9,7 +9,7 @@ const path = require('path');
 // connection
 mongoose
     .connect(
-        "mongodb+srv://tde:Erick2691@cluster0.jnyzd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+        `mongodb+srv://${process.env.HOST_OC}:${process.env.PASS_OC}@cluster0.jnyzd.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log("Connexion à MongoDB réussie !"))
     .catch(() => console.log("Connexion à MongoDB échouée !"));
 
@@ -27,3 +27,9 @@ app.use('/api/sauces', sauceRoutes);
 app.use('/api/auth', userRoutes);
 
 module.exports = app;
+
+console.log(`${process.env.HOST_OC}`)
+console.log(`${process.env.APP_NAME}`)
+console.log(`Ready on ${process.env.NODE_ENV} mode`)
+console.log(`API : ${process.env.API_URL}`)
+console.log("Hello World!");
