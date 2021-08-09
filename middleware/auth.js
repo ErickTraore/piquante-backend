@@ -11,7 +11,7 @@ module.exports = (req, res, next) => {
     // si la demande contient un ID utilisateur, nous le comparons à celui extrait du token
     // s'il sont différents nous générerons une erreur
     if (req.body.userId && req.body.userId !== userId) {
-      throw 'Invalid user ID';
+     return res.status(403).json({ error: 'Utilisateur non trouvé !' });
     } else {
       next();
     }

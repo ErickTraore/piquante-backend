@@ -7,6 +7,7 @@ const MIME_TYPES = {
 };
 //La fonction diskstorage du packege multer a besoin de ses deux arguments destination  et filename pour créer le nom du fichier 'callback') qu'il engendrera
 const storage = multer.diskStorage({
+    
     destination: (req, file, callback) =>{
         callback(null, 'images');
     },

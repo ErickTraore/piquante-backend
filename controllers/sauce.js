@@ -1,6 +1,7 @@
 const Sauce = require('../models/sauce');
 const fs = require('fs');
 
+
 exports.createSauce = (req, res, next) => {
   const sauceObject = JSON.parse(req.body.sauce);
   delete sauceObject._id;
@@ -46,7 +47,7 @@ exports.modifySauce = (req, res, next) => {
     () => {
       res.status(200).json({
         message: 'Sauce updated successfully!'
-      });
+      })
     }
   ).catch(
     (error) => {
